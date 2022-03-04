@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-  let guessSubtitle = "Guess the 4 letter word!"
+  // let guessSubtitle = "Guess the 4 letter word!"
   
   const words = [
     "four", "able", "aged",
@@ -24,6 +24,8 @@ import './App.css';
   console.log("RANDOM WORD: ", randomWord.join(""))
 
 function App() {
+
+  // const [guessSubtitle, setGuessSubtitle] = useState("Guess the 4 letter word!")
 
   let guess: String[] = [];
   const [isGuess1Disabled, setIsGuess1Disabled] = useState(false)
@@ -139,7 +141,7 @@ function App() {
 
       if (form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
 
-        guess.push(form.elements[4].value, form.elements[5].value, form.elements[6].value, form.elements[7].value)
+        guess.push(form.elements[8].value, form.elements[9].value, form.elements[10].value, form.elements[11].value)
 
         setIsGuess3Disabled(!isGuess3Disabled)
 
@@ -249,21 +251,28 @@ function App() {
 
       } 
 
-      if (guess === randomWord || (form.elements[12].value !== "" && form.elements[13].value !== "" && form.elements[14].value !== "" && form.elements[15].value !== "" && guess.length < 1)) {
-        guessSubtitle = `The correct word was ${randomWord.join("")}`
-      }
-
       event.preventDefault()
     }, 1)
 
+    if (guess.join("") === randomWord.join("") || (form.elements[12].value !== "" && form.elements[13].value !== "" && form.elements[14].value !== "" && form.elements[15].value !== "" && guess.length < 1)) {
+      let guessSubtitle = document.getElementById("subtitle")
+      if(guessSubtitle == null) {  
+      } else {
+        console.log("HITTING")
+        guessSubtitle.innerText = `The correct word was ${randomWord.join("")}`
+      }
+    }
+
   }
+
+  
 
   let rowInputs = [1, 2, 3, 4]
 
   return (
     <div className="landingPage">
       <h1>Gaette</h1>
-      <h3>{guessSubtitle}</h3>
+      <h3 id="subtitle">Guess the 4 letter word!</h3>
       <p>If you get <span style={{ color: "rgb(0, 211, 0)" }}>██</span> it means that letter is in the word and in the correct position</p>
       <p>If you get <span style={{ color: "rgb(255, 184, 53)" }}>██</span> it means that letter is in the word but not in the right position</p>
       <form className="App" >
