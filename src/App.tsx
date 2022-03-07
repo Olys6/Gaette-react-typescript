@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import './App.css';
 
-  // let guessSubtitle = "Guess the 4 letter word!"
-  
-  const words = [
-    "four", "able", "aged",
-    "army", "bank", "band",
-    "base", "boat", "king", 
-    "acid", "bird", "burn", 
-    "camp", "bone", "down", 
-    "earn", "gift", "nice",
-    "belt", "case", "cash",
-    "chat", "club", "dark", 
-    "easy", "late", "fact",
-    "fate", "goal", "glad",
-    "girl", "grow", "join", 
-    "name", "next", "time", 
-    "true", "town", "warm",
-    "word", "year", "wire",
-    "boys", "hard"
-  ]
+// let guessSubtitle = "Guess the 4 letter word!"
 
-  const randomWord = words[Math.floor(Math.random() * words.length)].split("")
-  console.log("RANDOM WORD: ", randomWord.join(""))
+const words = [
+  "four", "able", "aged",
+  "army", "bank", "band",
+  "base", "boat", "king",
+  "acid", "bird", "burn",
+  "camp", "bone", "down",
+  "earn", "gift", "nice",
+  "belt", "case", "cash",
+  "chat", "club", "dark",
+  "easy", "late", "fact",
+  "fate", "goal", "glad",
+  "girl", "grow", "join",
+  "name", "next", "time",
+  "true", "town", "warm",
+  "word", "year", "wire",
+  "boys", "hard"
+]
+
+const randomWord = words[Math.floor(Math.random() * words.length)].split("")
+// console.log("RANDOM WORD: ", randomWord.join(""))
+
+let subtitle = "Guess the 4 letter word!"
 
 function App() {
 
@@ -30,7 +32,7 @@ function App() {
 
   let guess: String[] = [];
   const [isGuess1Disabled, setIsGuess1Disabled] = useState(false)
-  
+
   // let guess2: String[] = [];
   const [isGuess2Disabled, setIsGuess2Disabled] = useState(false)
 
@@ -39,6 +41,8 @@ function App() {
 
   // let guess4: String[] = [];
   const [isGuess4Disabled, setIsGuess4Disabled] = useState(false)
+
+  const [showAnswer, setShowAnswer] = useState(false)
 
   const navigateInputs = (event: any) => {
 
@@ -49,11 +53,11 @@ function App() {
 
       // test
 
-      if(form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "" && guess.length < 1) {
+      if (form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "" && guess.length < 1) {
         // console.log("FIRST ROW IS COMPLETED!")
-  
+
         guess.push(form.elements[0].value, form.elements[1].value, form.elements[2].value, form.elements[3].value)
-  
+
         setIsGuess1Disabled(!isGuess1Disabled)
 
         for (let i = 0; i < 4; i++) {
@@ -72,12 +76,12 @@ function App() {
           }
         }
 
-        if(guess[0] === randomWord[0]) {
+        if (guess[0] === randomWord[0]) {
           form.elements[0].style.transition = "1s"
           form.elements[0].style.backgroundColor = "rgb(0, 211, 0)"
         }
 
-        if(guess[1] === randomWord[1]) {
+        if (guess[1] === randomWord[1]) {
           form.elements[1].style.transition = "1s"
           form.elements[1].style.backgroundColor = "rgb(0, 211, 0)"
         }
@@ -97,7 +101,7 @@ function App() {
       }
 
       if (form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
-        
+
         guess.push(form.elements[4].value, form.elements[5].value, form.elements[6].value, form.elements[7].value)
 
         setIsGuess2Disabled(!isGuess2Disabled)
@@ -230,56 +234,78 @@ function App() {
           form.elements[15].style.backgroundColor = "rgb(0, 211, 0)"
         }
 
+        setShowAnswer(!showAnswer)
+
       }
 
-      if (event.key === "Backspace" && form.elements[index - 1] !== form.elements[3] && form.elements[index - 1] !== form.elements[7] && form.elements[index - 1] !== form.elements[11]) {
+      // && form.elements[index - 1] !== form.elements[3] && form.elements[index - 1] !== form.elements[7] && form.elements[index - 1] !== form.elements[11]
 
-        form.elements[index - 1].focus()
-        form.elements[index - 1].value = ""
+      if (event.key === "Backspace") {
+        if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
+          form.elements[4].focus()
+        } else if (form.elements[index - 1] === form.elements[7] && form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
+          form.elements[8].focus()
+        } else if (form.elements[index - 1] === form.elements[11] && form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
+          form.elements[12].focus()
+        } else {
+          form.elements[index - 1].focus()
+          form.elements[index - 1].value = ""
+        }
 
-      } else if (event.key === "ArrowLeft" && form.elements[index - 1] !== form.elements[3] && form.elements[index - 1] !== form.elements[7] && form.elements[index - 1] !== form.elements[11]) {
-        form.elements[index - 1].focus()
+      } else if (event.key === "ArrowLeft") {
+        if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
+          form.elements[4].focus()
+        } else if (form.elements[index - 1] === form.elements[7] && form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
+          form.elements[8].focus()
+        } else if (form.elements[index - 1] === form.elements[11] && form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
+          form.elements[12].focus()
+        } else {
+          form.elements[index - 1].focus()
+        }
       } else if (event.key === "ArrowRight") {
         form.elements[index + 1].focus()
-      } else if(event.key === "Spacebar") {
+      } else if (event.key === "Spacebar") {
       } else {
-        // guess1.push(form.element[index].value)
-        // setTimeout(() => {
-        //   console.log(form.element[index].value)
-        // }, 1000)
-        
-        // console.log("GUESS ARRAY: ", guess1)
-
         form.elements[index + 1].focus()
-
-      } 
+      }
 
       event.preventDefault()
     }, 1)
 
     if (guess.join("") === randomWord.join("") || (form.elements[12].value !== "" && form.elements[13].value !== "" && form.elements[14].value !== "" && form.elements[15].value !== "" && guess.length < 1)) {
       let guessSubtitle = document.getElementById("subtitle")
-      if(guessSubtitle == null) {  
+      if (guessSubtitle == null) {
       } else {
         console.log("HITTING")
         guessSubtitle.innerText = `The correct word was ${randomWord.join("")}`
       }
     }
 
+    if(form.elements[12].value !== "" && form.elements[13].value !== "" && form.elements[14].value !== "" && form.elements[15].value !== "" && guess.length < 1) {
+      subtitle = `The 4 letter word was ${randomWord}`
+    }
+
+
+
   }
 
+  if(showAnswer) {
+    subtitle = `The 4 letter word was ${randomWord.join("").toUpperCase()}`
+  }
   
 
   let rowInputs = [1, 2, 3, 4]
 
   return (
     <div className="landingPage">
-      <h1>Gaette</h1>
-      <h3 id="subtitle">Guess the 4 letter word!</h3>
-      <p>If you get <span style={{ color: "rgb(0, 211, 0)" }}>██</span> it means that letter is in the word and in the correct position</p>
-      <p>If you get <span style={{ color: "rgb(255, 184, 53)" }}>██</span> it means that letter is in the word but not in the right position</p>
+      <h1>Gætte</h1>
+      <h3 id="subtitle">{subtitle}</h3>
+      <div>
+        <p>If you get <span style={{ color: "rgb(0, 211, 0)" }}>██</span> it means that letter is in the word and in the correct position</p>
+        <p>If you get <span style={{ color: "rgb(255, 184, 53)" }}>██</span> it means that letter is in the word but not in the right position</p>
+      </div>
       <form className="App" >
-        
+
         <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess1Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row1letter${i}`} type="text" maxLength={1} />)}</div>
 
         <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess2Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row2letter${i}`} type="text" maxLength={1} />)}</div>
