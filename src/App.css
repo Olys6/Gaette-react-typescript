@@ -2,8 +2,18 @@ html {
   background-color:rgb(46, 46, 46);
   color: white;
   font-family: 'Ubuntu', sans-serif;
-
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
+
+/* body {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color: white;
+} */
 
 .landingPage {
   display: flex;
@@ -25,10 +35,18 @@ html {
   gap: 0.2rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  /* width: 90%; */
+}
+
 .RowInputs {
-  width: 8rem;
-  height: 8rem;
-  font-size:8rem;
+  width: 7rem;
+  height: 7rem;
+  font-size:7rem;
   border-radius: 15px;
   border: 2px solid gray;
   background-color:rgb(46, 46, 46);
@@ -36,3 +54,9 @@ html {
   text-align: center;
   text-transform:uppercase;
 }
+
+/* @media screen and (min-width: 800px) {
+  .form {
+    margin: 1em 2em;
+  }
+} */
