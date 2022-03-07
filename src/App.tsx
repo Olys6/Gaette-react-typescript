@@ -47,6 +47,8 @@ function App() {
 
     setTimeout(() => {
 
+      // test
+
       if(form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "" && guess.length < 1) {
         // console.log("FIRST ROW IS COMPLETED!")
   
