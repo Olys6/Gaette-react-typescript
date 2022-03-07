@@ -17,7 +17,8 @@ import './App.css';
     "girl", "grow", "join", 
     "name", "next", "time", 
     "true", "town", "warm",
-    "word", "year", "wire"
+    "word", "year", "wire",
+    "boys", "hard"
   ]
 
   const randomWord = words[Math.floor(Math.random() * words.length)].split("")
