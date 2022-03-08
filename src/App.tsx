@@ -22,7 +22,7 @@ const words = [
 ]
 
 const randomWord = words[Math.floor(Math.random() * words.length)].split("")
-console.log("RANDOM WORD: ", randomWord.join(""))
+// console.log("RANDOM WORD: ", randomWord.join(""))
 
 let subtitle = "Guess the 4 letter word!"
 
@@ -253,7 +253,7 @@ function App() {
           form.elements[15].style.transition = "1s"
           form.elements[15].style.backgroundColor = "rgb(0, 211, 0)"
         }
-        
+
         setShowAnswer(true)
 
       }
