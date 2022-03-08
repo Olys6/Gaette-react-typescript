@@ -285,6 +285,8 @@ function App() {
       } else if (event.key === "ArrowRight") {
         form.elements[index + 1].focus()
       } else if (event.key === "Spacebar") {
+      } else if (event.key === "Shift") {
+
       } else {
         form.elements[index + 1].focus()
       }
@@ -296,7 +298,7 @@ function App() {
       let guessSubtitle = document.getElementById("subtitle")
       if (guessSubtitle == null) {
       } else {
-        console.log("HITTING")
+        // console.log("HITTING")
         guessSubtitle.innerText = `The correct word was ${randomWord.join("")}`
       }
     }

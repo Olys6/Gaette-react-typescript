@@ -87,3 +87,27 @@ form {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .RowInputs {
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .RowInputs {
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  .RowInputs {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+  }
+}
+
