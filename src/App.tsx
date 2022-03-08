@@ -345,11 +345,11 @@ function App() {
 
         <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess1Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row1letter${i}`} type="text" maxLength={1} />)}</div>
 
-        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess2Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row2letter${i}`} type="text" maxLength={1} />)}</div>
+        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess2Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row2letter${i}`} type="text" maxLength={1} />)}</div>
 
-        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess3Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row3letter${i}`} type="text" maxLength={1} />)}</div>
+        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess3Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row3letter${i}`} type="text" maxLength={1} />)}</div>
 
-        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess4Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row4letter${i}`} type="text" maxLength={1} />)}</div>
+        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess4Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row4letter${i}`} type="text" maxLength={1} />)}</div>
       </form>
       {showAnswer ? 
         <a href="" id="playAgainBtn">
