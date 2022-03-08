@@ -18,7 +18,8 @@ const words = [
   "name", "next", "time",
   "true", "town", "warm",
   "word", "year", "wire",
-  "boys", "hard"
+  "boys", "hard", "nerd",
+  "bald", "rate"
 ]
 
 const randomWord = words[Math.floor(Math.random() * words.length)].split("")
@@ -48,8 +49,6 @@ function App() {
 
     const form = event.target.form
     const index = [...form].indexOf(event.target)
-
-
 
     setTimeout(() => {
 
@@ -258,8 +257,6 @@ function App() {
 
       }
 
-      // && form.elements[index - 1] !== form.elements[3] && form.elements[index - 1] !== form.elements[7] && form.elements[index - 1] !== form.elements[11]
-
       if (event.key === "Backspace") {
         if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
           form.elements[4].focus()
@@ -271,21 +268,6 @@ function App() {
           form.elements[index - 1].focus()
           form.elements[index - 1].value = ""
         }
-
-      } else if (event.key === "ArrowLeft") {
-        if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
-          form.elements[4].focus()
-        } else if (form.elements[index - 1] === form.elements[7] && form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
-          form.elements[8].focus()
-        } else if (form.elements[index - 1] === form.elements[11] && form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
-          form.elements[12].focus()
-        } else {
-          form.elements[index - 1].focus()
-        }
-      } else if (event.key === "ArrowRight") {
-        form.elements[index + 1].focus()
-      } else if (event.key === "Spacebar") {
-      } else if (event.key === "Shift") {
 
       } else {
         form.elements[index + 1].focus()
@@ -307,8 +289,6 @@ function App() {
       subtitle = `The 4 letter word was ${randomWord}`
     }
 
-
-
   }
 
   if(showAnswer) {
@@ -317,6 +297,41 @@ function App() {
   
 
   let rowInputs = [1, 2, 3, 4]
+
+  const keyDown = (event: any) => {
+
+    const form = event.target.form
+    const index = [...form].indexOf(event.target)
+
+    if (event.key === "Backspace") {
+      if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
+        form.elements[4].focus()
+      } else if (form.elements[index - 1] === form.elements[7] && form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
+        form.elements[8].focus()
+      } else if (form.elements[index - 1] === form.elements[11] && form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
+        form.elements[12].focus()
+      } else if (form.elements[index].value !== "") {
+
+      } else {
+        form.elements[index - 1].focus()
+        form.elements[index - 1].value = ""
+      }
+
+    } else if (event.key === "ArrowLeft") {
+      if(form.elements[index - 1] === form.elements[3] && form.elements[0].value !== "" && form.elements[1].value !== "" && form.elements[2].value !== "" && form.elements[3].value !== "") {
+        form.elements[4].focus()
+      } else if (form.elements[index - 1] === form.elements[7] && form.elements[4].value !== "" && form.elements[5].value !== "" && form.elements[6].value !== "" && form.elements[7].value !== "" && guess.length < 1) {
+        form.elements[8].focus()
+      } else if (form.elements[index - 1] === form.elements[11] && form.elements[8].value !== "" && form.elements[9].value !== "" && form.elements[10].value !== "" && form.elements[11].value !== "" && guess.length < 1) {
+        form.elements[12].focus()
+      } else {
+        form.elements[index - 1].focus()
+      }
+    } else if (event.key === "ArrowRight") {
+      form.elements[index + 1].focus()
+    }
+
+  }
 
   return (
     <div className="landingPage">
@@ -328,7 +343,7 @@ function App() {
       </div>
       <form className="App" >
 
-        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess1Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row1letter${i}`} type="text" maxLength={1} />)}</div>
+        <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess1Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row1letter${i}`} type="text" maxLength={1} />)}</div>
 
         <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess2Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row2letter${i}`} type="text" maxLength={1} />)}</div>
 
