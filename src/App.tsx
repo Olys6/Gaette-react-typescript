@@ -300,9 +300,9 @@ function App() {
     <div className="landingPage">
       <h1>Gætte</h1>
       <h3 id="subtitle">{subtitle}</h3>
-      <div>
-        <p>If you get <span style={{ color: "rgb(0, 211, 0)" }}>██</span> it means that letter is in the word and in the correct position</p>
-        <p>If you get <span style={{ color: "rgb(255, 184, 53)" }}>██</span> it means that letter is in the word but not in the right position</p>
+      <div className="rules">
+        <p className="rulesDesc">If you get <span style={{ color: "rgb(0, 211, 0)" }}>██</span> it means that letter is in the word and in the correct position</p>
+        <p className="rulesDesc">If you get <span style={{ color: "rgb(255, 184, 53)" }}>██</span> it means that letter is in the word but not in the right position</p>
       </div>
       <form className="App" >
 
@@ -314,6 +314,16 @@ function App() {
 
         <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess4Disabled} onKeyDown={navigateInputs} className="RowInputs" id={`row4letter${i}`} type="text" maxLength={1} />)}</div>
       </form>
+      {showAnswer ? 
+        <a href="" id="playAgainBtn">
+          <div>
+            Play Again
+          </div>
+        </a>
+        :
+        <>
+        </>
+      } 
     </div>
   );
 }
