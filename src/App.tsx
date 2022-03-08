@@ -22,7 +22,7 @@ const words = [
 ]
 
 const randomWord = words[Math.floor(Math.random() * words.length)].split("")
-// console.log("RANDOM WORD: ", randomWord.join(""))
+console.log("RANDOM WORD: ", randomWord.join(""))
 
 let subtitle = "Guess the 4 letter word!"
 
@@ -48,6 +48,8 @@ function App() {
 
     const form = event.target.form
     const index = [...form].indexOf(event.target)
+
+
 
     setTimeout(() => {
 
@@ -95,8 +97,16 @@ function App() {
           form.elements[3].style.transition = "1s"
           form.elements[3].style.backgroundColor = "rgb(0, 211, 0)"
         }
+    
+        if(guess[0] === randomWord[0] && guess[1] === randomWord[1] && guess[2] === randomWord[2] && guess[3] === randomWord[3]) {
+          // console.log("HITTING")
+          setShowAnswer(true)
+        }
 
+        // setTimeout(() => {
         guess = []
+        // },1)
+        
         // console.log("FIRST GUESS", guess1)
       }
 
@@ -140,6 +150,11 @@ function App() {
         if (guess[3] === randomWord[3]) {
           form.elements[7].style.transition = "1s"
           form.elements[7].style.backgroundColor = "rgb(0, 211, 0)"
+        }
+
+        if(guess[0] === randomWord[0] && guess[1] === randomWord[1] && guess[2] === randomWord[2] && guess[3] === randomWord[3]) {
+          // console.log("HITTING")
+          setShowAnswer(true)
         }
 
         guess = []
@@ -188,6 +203,11 @@ function App() {
           form.elements[11].style.backgroundColor = "rgb(0, 211, 0)"
         }
 
+        if(guess[0] === randomWord[0] && guess[1] === randomWord[1] && guess[2] === randomWord[2] && guess[3] === randomWord[3]) {
+          // console.log("HITTING")
+          setShowAnswer(true)
+        }
+
         guess = []
 
       }
@@ -233,8 +253,8 @@ function App() {
           form.elements[15].style.transition = "1s"
           form.elements[15].style.backgroundColor = "rgb(0, 211, 0)"
         }
-
-        setShowAnswer(!showAnswer)
+        
+        setShowAnswer(true)
 
       }
 
