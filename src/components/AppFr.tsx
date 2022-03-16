@@ -292,7 +292,7 @@ const AppFr = () => {
     }
 
     if (showAnswer) {
-        subtitle = `Le mot étais ${randomWord.join("").toUpperCase()}`
+        subtitle = `Le mot était ${randomWord.join("").toUpperCase()}`
     }
 
 
