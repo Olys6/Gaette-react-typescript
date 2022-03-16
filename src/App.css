@@ -7,6 +7,22 @@ html {
   width: 100%;
 }
 
+#engAndFrBtns {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+  margin-bottom: -60px;
+}
+
+.languageLink {
+  text-decoration: none;
+  color: rgb(146, 146, 255)
+}
+
+.languageLink:hover {
+  text-decoration: underline;
+}
+
 /* body {
   display: flex;
   justify-content:center;
@@ -27,6 +43,14 @@ html {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+#subtitle {
+  margin-top: -8px;
+}
+
+.rules {
+  margin-top: -10px;
 }
 
 .row {
