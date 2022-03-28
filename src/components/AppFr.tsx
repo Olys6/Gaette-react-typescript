@@ -23,7 +23,7 @@ const words = [
 ]
 
 const randomWord = words[Math.floor(Math.random() * words.length)].split("")
-// console.log("RANDOM WORD: ", randomWord.join(""))
+console.log("LE MOT EST: ", randomWord.join(""))
 
 let subtitle = "Devine le mot de 4 lettres!"
 

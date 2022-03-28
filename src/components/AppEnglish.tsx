@@ -23,7 +23,7 @@ const words = [
 ]
 
 const randomWord = words[Math.floor(Math.random() * words.length)].split("")
-// console.log("RANDOM WORD: ", randomWord.join(""))
+console.log("RANDOM WORD: ", randomWord.join(""))
 
 let subtitle = "Guess the 4 letter word!"
 
