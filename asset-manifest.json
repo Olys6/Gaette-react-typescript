@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Gaette-react-typescript/static/css/main.a2cf248a.css",
-    "main.js": "/Gaette-react-typescript/static/js/main.0ca5abd2.js",
+    "main.js": "/Gaette-react-typescript/static/js/main.eaf1dfd8.js",
     "static/js/787.f1294405.chunk.js": "/Gaette-react-typescript/static/js/787.f1294405.chunk.js",
     "index.html": "/Gaette-react-typescript/index.html",
     "main.a2cf248a.css.map": "/Gaette-react-typescript/static/css/main.a2cf248a.css.map",
-    "main.0ca5abd2.js.map": "/Gaette-react-typescript/static/js/main.0ca5abd2.js.map",
+    "main.eaf1dfd8.js.map": "/Gaette-react-typescript/static/js/main.eaf1dfd8.js.map",
     "787.f1294405.chunk.js.map": "/Gaette-react-typescript/static/js/787.f1294405.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a2cf248a.css",
-    "static/js/main.0ca5abd2.js"
+    "static/js/main.eaf1dfd8.js"
   ]
 }
