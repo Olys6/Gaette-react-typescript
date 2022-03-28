@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // let guessSubtitle = "Guess the 4 letter word!"
 
 const words = [
-    "ante", "ayez", "fete",
+    "ante", "ayez", 
     "avis", "choc", "frai",
     "fume", "fort", "golf",
     "goal", "gene", "plus",
