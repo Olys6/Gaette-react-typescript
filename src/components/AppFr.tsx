@@ -352,7 +352,7 @@ const AppFr = () => {
                 <div className="row">{rowInputs.map((i) => <input key={i} disabled={isGuess4Disabled} onKeyDown={keyDown} onKeyPress={navigateInputs} className="RowInputs" id={`row4letter${i}`} type="text" maxLength={1} />)}</div>
             </form>
             {showAnswer ?
-                <a href="/" id="playAgainBtn">
+                <a href="" id="playAgainBtn">
                     <div>
                         Rejouer
                     </div>
