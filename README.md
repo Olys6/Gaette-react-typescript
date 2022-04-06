@@ -1,3 +1,5 @@
+# View the game <a href="https://olys6.github.io/Gaette-react-typescript/">here</a>
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
